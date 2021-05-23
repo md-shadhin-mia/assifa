@@ -1,0 +1,15 @@
+{
+  "compilerOptions":{
+    "target": "ES5",
+    "module": "ES2015",
+    "allowJs": true,
+    "sourceMap":true,
+    "removeComments":true,
+    "strict": true,                           /* Enable all strict type-checking options. */
+    "noImplicitAny": true,
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "moduleResolution": "node"
+  }
+}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>alFurkan</title>
+    <style>
+        @font-face {
+            font-family: al_mushaf;
+            src: url(publics/static/fonts/Al_Mushaf.ttf);
+        }
+
+        .anim{
+            transform-origin: left;
+            transform-style: preserve-3d;
+            animation: scales 0.5s cubic-bezier(0.22, 0.61, 0.36, 1) 1;
+        }
+        @keyframes scales {
+            0%{
+                transform: perspective(100px) rotateY(90deg);
+            }
+            50%{
+                transform: perspective(100px) rotateY(45deg);
+            }
+            100%{
+                transform: perspective(100px) rotateY(0deg);
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Al Quran</h1>
+        <div class="list-group mb-4 surahs">
+            <!-- <a href="#" class="list-group-item list-group-item-action active">
+                Cras justo odio
+            </a>
+            <a href="#" class="list-group-item list-group-item-action"><div class="row">
+
+            </div>Shadhin</div></a>
+            <a href="#" class="list-group-item list-group-item-action">Morbi leo risus</a>
+            <a href="#" class="list-group-item list-group-item-action">Porta ac consectetur ac</a>
+            <a href="#" class="list-group-item list-group-item-action disabled" tabindex="-1" aria-disabled="true">Vestibulum at eros</a> -->
+        </div>
+    </div>
+    <script src="publics/static/js/dist.js"></script>
+</body>
+</html>

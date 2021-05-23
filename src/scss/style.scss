@@ -1,0 +1,78 @@
+@import "../../node_modules/bootstrap/scss/bootstrap.scss";
+
+.arabic{
+    font-family: al_mushaf, sans-serif;
+    font-size: 1.5em;
+}
+.arabic-text{
+    font-family: al_mushaf, sans-serif;
+    font-size: 1.8em;
+}
+@keyframes slideInRight {
+    from {
+      transform: scale(0, 0);
+      visibility: visible;
+    }
+  
+    to {
+      transform: scale(1, 1);
+    }
+  }
+.averse{
+    .varse_number{
+        font-weight: 700;
+    }
+    hr{
+        margin-bottom: 0px;
+    }
+    .qu-ayat{
+        transform-origin: right;
+        animation: slideInRight 0.3s ease-in;
+    }
+    
+}
+
+.controls{
+    position: fixed;
+    overflow: hidden;
+    ul{
+        display: flex;
+        left: 5px;
+        padding: 0px;
+        margin: 0px;
+        li{
+            list-style: none;
+            padding: 8px;
+            background-color: rgba(0, 128, 0, 0.6);
+            border-radius: 50%;
+            height: 2rem;
+            width: 2rem;
+            margin: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            transition: transform 0.3s ease;
+            transform:translateY(2.5rem);
+            cursor: pointer;
+        }
+    }
+    &.show{
+        ul li{
+            transform:translateY(0px);
+        }
+    }
+}
+
+.extra-container{
+    display: none;
+    position: fixed;
+    top: 0px;
+    bottom: 0px;
+    left: 0px;
+    right: 0px;
+    background-color: lighten($color: rgb(0, 255, 0), $amount: 45);
+    &.show{
+        display: block;
+        z-index: 1064;
+    }
+}

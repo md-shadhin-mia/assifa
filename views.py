@@ -1,4 +1,5 @@
 import shutil
+import winsound
 
 
 class surahView(object):
@@ -21,3 +22,14 @@ def aSurah(file, id=1):
     view = surahView()
     file.write(view.Rander(id).encode("utf-8"))
     return
+def audioVarse(surahId, varseId):
+    audioPath = "0"*(3-len(str(surahId)))+str(surahId)
+    varsename = audioPath+("0"*(3-len(str(varseId)))+str(varseId))
+    varsePath = "asset/audio/Alafasy/"+audioPath+"/"+varsename+".mp3"
+    print(varsePath)
+    with open(varsePath, "rb") as aud:
+        return aud.read()
+    return
+
+# if __name__ == "__main__":
+#     audio(1,1)

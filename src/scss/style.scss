@@ -1,5 +1,8 @@
 @import "../../node_modules/bootstrap/scss/bootstrap.scss";
-
+*{
+    margin: 0px;
+    padding: 0px;
+}
 .arabic{
     font-family: al_mushaf, sans-serif;
     font-size: 1.5em;
@@ -62,7 +65,31 @@
         }
     }
 }
-
+@keyframes arabIn {
+    0%{
+        transform: perspective(100px) rotateY(-90deg);
+    }
+    100%{
+        transform: perspective(100px) rotateY(0deg);
+    }
+}
+@keyframes banglIn {
+    0%{
+        transform: perspective(100px) rotateY(90deg);
+    }
+    100%{
+        transform: perspective(100px) rotateY(0deg);
+    }
+}
+@keyframes fadeout {
+    0%{
+        opacity: 1;
+    }
+    100%{
+        opacity: 0;
+        visibility:hidden;
+    }
+}
 .extra-container{
     display: none;
     position: fixed;
@@ -71,8 +98,58 @@
     left: 0px;
     right: 0px;
     background-color: lighten($color: rgb(0, 255, 0), $amount: 45);
+    
     &.show{
         display: block;
         z-index: 1064;
+    }
+    .closer{
+        position: absolute;
+        padding: 2px 19px;
+        top: 4px;
+        left: 4px;
+        font-size: 2em;
+        cursor: pointer;
+        opacity: 0.2;
+        border-radius: 50%;
+        &:hover{
+            opacity: 1;
+        }
+    }
+    .arabic-text-container{
+        height: 50vh;
+        width: 100vw;
+        // padding: 38px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-origin: right;
+        animation: arabIn 1s cubic-bezier(0.59, 0.59, 0.37, 1);
+    }
+    .bangla-mening-container{
+        height: calc(50vh - 12px);
+        width: 100vw;
+        // padding: 38px;
+        margin: 6px 0px;
+        text-align: center;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform-origin: left;
+        animation: banglIn 1s cubic-bezier(0.59, 0.59, 0.37, 1);
+    }
+    .arabic-text-container.end,.bangla-mening-container.end{
+        animation:fadeout 0.5s ease-out;
+    }
+    .btn-next{
+        position: fixed;
+        right: 0px;
+        top: 50%;
+        opacity: 0.4;
+        padding: 8px;
+        border: none;
+        background-color: deepskyblue;
+        border-radius: 26% 0px 0px 24%;
     }
 }

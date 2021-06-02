@@ -4,8 +4,9 @@ from http.server import BaseHTTPRequestHandler, HTTPServer
 import mimetypes
 from os import path
 from urllib.parse import urlparse, parse_qs
+import webbrowser
 import shutil
-from views import index, aSurah
+from views import index, aSurah, audioVarse
 
 
 
@@ -20,6 +21,10 @@ class myResponce(BaseHTTPRequestHandler, QuranDatabase):
             prop = parse_qs(urlparse(self.path).query)
             self.send_htmlHeader(mimetypes.guess_type("file.html"))
             aSurah(self.wfile, prop["id"][0])
+        elif self.path.startswith("/audio"):
+            prop = parse_qs(urlparse(self.path).query)
+            self.send_htmlHeader(mimetypes.guess_type("file.mp3"))
+            self.wfile.write(audioVarse(int(prop["id"][0]), int(prop["varse"][0])))
         elif self.path == "/surah_names":
             # self.database = QuranDatabase()
             self.send_htmlHeader(mimetypes.guess_type("index.json"))
@@ -59,4 +64,5 @@ class myResponce(BaseHTTPRequestHandler, QuranDatabase):
 
 if __name__ == "__main__":
     with HTTPServer(("", 8000), myResponce) as htts:
+        webbrowser.open("http://127.0.0.1:8000")
         htts.serve_forever()
